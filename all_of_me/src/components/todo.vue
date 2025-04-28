@@ -52,6 +52,9 @@ const filterTodolist = computed(() =>{
 <style scoped>
 #app {
   text-align: center;
+  background-image: url(../assets/img/bg2.jpg);
+  height: 100vh;
+  width: 100vw;
 }
 
 </style>

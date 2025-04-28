@@ -5,11 +5,11 @@
 <!-- App.vue -->
 <template>
   <div id="app">
-    <nav>
+    <!-- <nav>
       <router-link to="/home" class="nav-btn">首页</router-link>
       <router-link to="/todos" class="nav-btn">待办事项</router-link>
       <router-link to="/calendar" class="nav-btn">日历视图</router-link>
-    </nav>
+    </nav> -->
     <!-- 删除测试用文字 -->
     <router-view></router-view>
   </div>
