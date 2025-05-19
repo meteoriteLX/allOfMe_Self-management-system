@@ -99,8 +99,7 @@
    
             <div class="site">
    
-              <img class="icon" src="../assets/img/locate.png">
-   
+              <img class="icon" src="#">
               <span>{{item.place}}</span>
    
             </div>

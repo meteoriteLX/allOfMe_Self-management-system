@@ -3,6 +3,7 @@ import TodoPage from '../components/todo.vue'  // 将现有App改名为TodoPage
 import CalendarPage from '../components/calendar.vue'
 import mainPage from '../App.vue'
 import HomePage from '../components/home.vue'
+import ChatRoom from '../components/chatRoom.vue'
 
 
 const routes = [
@@ -26,6 +27,10 @@ const routes = [
       { 
         path: 'calendar', 
         component: CalendarPage 
+      },
+      { 
+        path: 'chatroom', 
+        component: ChatRoom 
       }
     ]
   }

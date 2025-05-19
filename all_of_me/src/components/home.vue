@@ -52,7 +52,7 @@ import {ref} from 'vue'
           <button class="drawer-btn" @click="slideTo(3)">Calendar<span class="drawer-head">日历</span></button>
         </div>
         <div class="drawer-box">
-          <button class="drawer-btn" @click="slideTo(4)">Diary<span class="drawer-head">日记</span></button>
+          <button class="drawer-btn" @click="slideTo(4)">ChatRoom<span class="drawer-head">聊天</span></button>
         </div>
       </div>
     </div>
@@ -89,6 +89,7 @@ import {ref} from 'vue'
             <router-link to="/todos" class="main-btn">前往待办清单</router-link>
           </div>
         </div>
+
         <div class="card">
           <div class="card-title"><div style="font-size: 30px;">Calendar</div>日历</div>
           <div class="card-content">时间是最公正的叙事者，而日历是你私人的编年史官。<br> 当晨曦染红日历的边角，你看到的不仅是日期，<br>
@@ -104,16 +105,31 @@ import {ref} from 'vue'
             <router-link to="/calendar" class="main-btn">前往日历视图</router-link>
           </div>
         </div>
-        <div class="card">
+
+        <!-- <div class="card">
           <div class="card-title"><div style="font-size: 30px;">Diary</div>日记</div>
           <div class="card-content">文字是心灵的显影剂，日记是时光的保险箱。<br> 请在这里记录你的生活，你的故事。每一笔记录都是对自我的温柔叩问，每一页空白都静待着用真诚墨水书写的故事——因为最动人的成长，往往藏匿于那些未被说出口的独白。<br>
             <span style="font-size: 18px;">Words are the developer of the soul, and the diary a time capsule. Every entry is a gentle inquiry to the self, every blank page awaits stories penned with sincere ink — for the most poignant growth often hides in unspoken soliloquies.</span>
+          </div>
+           <div class="card-img">
+            <img src="" alt="">
+          </div> 
+          <div class="btn-box">
+             <button class="main-btn">前往</button> 
+          </div>
+        </div> -->
+
+        <div class="card">
+          <div class="card-title"><div style="font-size: 30px;">ChatRoom</div>聊天室</div>
+          <div class="card-content">每一段旅程都始于清晰的足迹，每一个目标都成于有序的规划。<br> 无论是琐碎日常还是宏伟项目，你的待办清单都将化身时光的舵手，助你在纷繁世界中锚定方向，让「未完成」蜕变为「已成就」。<br>
+            <span style="font-size: 18px;">Every journey begins with clear footprints, and every goal thrives on structured plans. From daily chores to grand projects, your to-do list becomes the helmsman of time, anchoring your focus in a chaotic world and transforming "pending" into "accomplished."</span> 
           </div>
           <!-- <div class="card-img">
             <img src="" alt="">
           </div> -->
           <div class="btn-box">
             <!-- <button class="main-btn">前往</button> -->
+            <router-link to="/chatroom" class="main-btn">前往聊天室</router-link>
           </div>
         </div>
       </div>
