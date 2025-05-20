@@ -4,27 +4,27 @@ import { ref, onMounted } from 'vue'
 const messages = ref([])
 const inputMsg = ref('')
 const ws = ref(null)
-const serverIP = '120.27.248.59' // 替换为你的服务器 IP
+const serverIP = '120.27.248.59' //服务器IP地址
 
 onMounted(() => {
   connectWebSocket()
 })
 
 const connectWebSocket = () => {
-  ws.value = new WebSocket(`ws://${serverIP}:8080`)
+  ws.value = new WebSocket(`ws://${serverIP}:8080`) //触发tcp三次握手，发送http升级头  connection:upgrade
 
   ws.value.onmessage = async (event) => {
   const data = JSON.parse(event.data); // 解析 JSON 数据
 
   if (data.type === 'id') {
-    console.log(`Your client ID: ${data.id}`); // 打印分配的客户端 ID
+    console.log(`Your client ID: ${data.id}`); //打印分配的客户端 ID
   } else if (data.type === 'message') {
-    // 确保 content 是字符串
+    //确保content是字符串
     const content = typeof data.content === 'string' ? data.content : JSON.stringify(data.content);
 
     messages.value.push({
-      content: `${data.id}: ${content}`, // 显示发送者的 ID 和消息内容
-      time: new Date().toLocaleTimeString(),
+      content: `${data.id}: ${content}`, //历史消息中的发送者的ID和消息内容
+      time: new Date(data.timestamp).toLocaleTimeString(),//把记录的历史消息时间转化为本地格式
     });
   }
 };
@@ -36,8 +36,8 @@ const connectWebSocket = () => {
 
 const sendMessage = () => {
   if (inputMsg.value.trim() && ws.value.readyState === WebSocket.OPEN) {
-    ws.value.send(inputMsg.value) // 发送消息
-    inputMsg.value = '' // 清空输入框
+    ws.value.send(inputMsg.value) //发送消息
+    inputMsg.value = '' //清空输入框
   }
 }
 </script>
