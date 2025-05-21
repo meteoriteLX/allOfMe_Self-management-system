@@ -1,11 +1,11 @@
 <script setup>
 import { ref,defineEmits } from 'vue'
-import { useTodoStore } from '../stores/todoStore'
-  
-  const todoStore = useTodoStore()
-  const active = ref(todoStore.active);
+  const active = ref(0);
+  const emit = defineEmits(['updateActive'])
   const changeActive = (index) =>{
-    todoStore.updateActive(index)
+    active.value = index
+    // console.log(active.value)
+    emit('updateActive',active.value)
   }
 
 </script>

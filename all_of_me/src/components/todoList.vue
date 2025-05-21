@@ -1,15 +1,8 @@
 <script setup>
 import {ref} from 'vue'
-  defineProps({
-    todoList:{
-      type:Array,
-      required: true,
-      default:[]
-      // ↑默认值为空
-    }
-  })
+import { useTodoStore } from '../stores/todoStore'
 
-  const emit = defineEmits(['updateTask'])
+  const todoStore = useTodoStore()
   const editingId = ref(null)
   const editingTask = ref('')
 
@@ -21,7 +14,7 @@ import {ref} from 'vue'
 
    function saveEditing()
    {
-    emit('updateTask',{id:editingId.value,task:editingTask.value,isCompleted:false})
+    todoStore.updateTask({ id: editingId.value , task:editingTask.value })
     editingId.value = null
     editingTask.value = ''
    }
@@ -39,7 +32,7 @@ import {ref} from 'vue'
 <template>
   <ul class="list-group">
   <li class="list-group-item d-flex justify-content-between align-items-center"
-  v-for="item in todoList" :key="item.id">
+  v-for="item in todoStore.filterTodolist" :key="item.id">
     <!-- 复选框 -->
       <div class="form-check">
       <input v-if="editingId !== item.id" class="form-check-input" type="checkbox"  :id="item.id" v-model="item.isCompleted">

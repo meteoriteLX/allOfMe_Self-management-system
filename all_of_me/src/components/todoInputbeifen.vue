@@ -1,17 +1,16 @@
 <script setup>
 import{ref} from 'vue'
-import{ useTodoStore } from '../stores/todoStore';
-
 const taskname = ref('')
-const todoStore = useTodoStore();
+const emit = defineEmits(['addTask'])
 function onsubmit()
 {
   if(taskname.value.trim() === ''){
     alert('任务名称不能为空')
     return
   }
-  todoStore.addTask({ id:Date.now(),task:taskname.value, isCompleted:false});
+  emit('addTask',{id:Date.now(),task:taskname.value , isCompleted:false})
   taskname.value = ''
+
 }
 
 </script>
